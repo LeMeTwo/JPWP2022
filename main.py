@@ -90,9 +90,18 @@ class Window(QMainWindow, Ui_Dialog):
             #O dziwo jak to wkleję bezpośrednio to nie działa jak powinno, nie porządkować!
             toRem = self.SelectCatBox.itemText(self.SelectCatBox.currentIndex())
             self.SelectCatBox.removeItem(self.SelectCatBox.currentIndex())
-            CatDatabas.remove(toRem)
+            for x in CatDatabas:
+                if (x.name == toRem):
+                    CatDatabas.remove(x)
+                    break
+
+            if not CatDatabas:
+                # Ogarnij tutaj jak się wyświetla grafiki na przykładzie
+                print("Nie ma czego usuwać")
+                self.setWindowIcon(QIcon('resources/TrollfaceProblem.jpg'))
+                self.listView.setStyleSheet("background-image : url(resources/TrollfaceProblem.jpg);")
+
         except:
-            #Ogarnij tutaj jak się wyświetla grafiki na przykładzie
             print("Nie ma czego usuwać")
             self.setWindowIcon(QIcon('resources/TrollfaceProblem.jpg'))
             self.listView.setStyleSheet("background-image : url(resources/TrollfaceProblem.jpg);")
@@ -116,7 +125,7 @@ class Window(QMainWindow, Ui_Dialog):
 
             elif(text not in CatDatabas):
                 self.SelectCatBox.addItem(text)
-                CatDatabas.append(text)
+                CatDatabas.append(Category(text))
                 self.textEditCat.clear()
 
             else:
