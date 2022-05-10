@@ -40,7 +40,9 @@ class Actions(QDialog):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = Actions()
-    sys.exit(app.exec_())class Actions(QDialog):
+    sys.exit(app.exec_())
+    class Actions(QDialog):
+
     """
     Simple dialog that consists of a Progress Bar and a Button.
     Clicking on the button results in the start of a timer and
