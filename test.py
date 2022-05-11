@@ -43,6 +43,7 @@ if __name__ == "__main__":
     sys.exit(app.exec_())
     class Actions(QDialog):
 
+
     """
     Simple dialog that consists of a Progress Bar and a Button.
     Clicking on the button results in the start of a timer and
