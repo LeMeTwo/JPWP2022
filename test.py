@@ -6,7 +6,6 @@ from PyQt5.QtWidgets import (QApplication, QDialog,
 
 TIME_LIMIT = 100
 
-
 class Actions(QDialog):
     """
     Simple dialog that consists of a Progress Bar and a Button.
@@ -42,8 +41,6 @@ if __name__ == "__main__":
     window = Actions()
     sys.exit(app.exec_())
     class Actions(QDialog):
-
-
     """
     Simple dialog that consists of a Progress Bar and a Button.
     Clicking on the button results in the start of a timer and
@@ -62,7 +59,6 @@ if __name__ == "__main__":
         self.button = QPushButton('Start', self)
         self.button.move(0, 30)
         self.show()
-
         self.button.clicked.connect(self.onButtonClick)
 
     def onButtonClick(self):
@@ -71,7 +67,6 @@ if __name__ == "__main__":
             count += 1
             time.sleep(1)
             self.progress.setValue(count)
-
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
