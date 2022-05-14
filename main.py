@@ -208,5 +208,5 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     win = Window()
     # win = AddEvent()
-    win.show()s
+    win.show()
     sys.exit(app.exec())
