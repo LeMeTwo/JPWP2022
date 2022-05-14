@@ -68,7 +68,7 @@ class Ui_Dialog(object):
         font.setWeight(75)
         self.SelectCatBox.setFont(font)
         self.SelectCatBox.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.SelectCatBox.setAutoFillBackground(True)
+        self.SelectCatBox.setAutoFillBackground(False)
         self.SelectCatBox.setStyleSheet("background-color:rgb(26, 72, 170);\n"
 "color: rgb(252,252,252);")
         self.SelectCatBox.setEditable(False)

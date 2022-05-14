@@ -3,10 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="53db153e-23be-4fb9-998f-513084bee309" name="Changes" comment="addEvent GUI - create new addEvent GUI (not working)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI2.ui" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/addEvent.py" beforeDir="false" afterPath="$PROJECT_DIR$/addEvent.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addEvent.ui" beforeDir="false" afterPath="$PROJECT_DIR$/addEvent.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oldAddEvent.py" beforeDir="false" afterPath="$PROJECT_DIR$/oldAddEvent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oldAddEvent.ui" beforeDir="false" afterPath="$PROJECT_DIR$/oldAddEvent.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oldAddEvent.py" beforeDir="false" afterPath="$PROJECT_DIR$/old_versions/oldAddEvent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oldAddEvent.ui" beforeDir="false" afterPath="$PROJECT_DIR$/old_versions/oldAddEvent.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oldGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/old_versions/oldGUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oldGUI.ui" beforeDir="false" afterPath="$PROJECT_DIR$/old_versions/oldGUI.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +52,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/main.py" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Program files studia\JetBrains\PyCharm 2021.3.3\projects\JPWP\old_versions" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="JPWP2022" />
@@ -83,7 +93,7 @@
       <workItem from="1652268137053" duration="207000" />
       <workItem from="1652474193274" duration="6498000" />
       <workItem from="1652481038339" duration="1912000" />
-      <workItem from="1652525289699" duration="26465000" />
+      <workItem from="1652525289699" duration="35444000" />
     </task>
     <task id="LOCAL-00001" summary="Change of details">
       <created>1652458712668</created>
@@ -148,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652561299457</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="addEvent GUI - create new addEvent GUI (not working)">
+      <created>1652561895734</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1652561895734</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,7 +193,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="addEvent GUI - create new addEvent GUI (not working)" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/JPWP$main.coverage" NAME="main Coverage Results" MODIFIED="1652561883584" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/JPWP$main.coverage" NAME="main Coverage Results" MODIFIED="1652570679167" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/JPWP2022$main.coverage" NAME="main Coverage Results" MODIFIED="1652267511739" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

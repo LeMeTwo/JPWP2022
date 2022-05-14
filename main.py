@@ -153,8 +153,8 @@ class AddEvent(QDialog, addEvent.Ui_Dialog):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setupUi(self)
-        self.label_6.hide()
-        self.remindComb.hide()
+        #self.label_6.hide()
+        #self.remindComb.hide()
 
         # Dodaje kategorie do combobox-ów.
         for x in CatDatabase:
@@ -207,5 +207,6 @@ if __name__ == "__main__":
     CatDatabase = [general, work]
     app = QApplication(sys.argv)
     win = Window()
-    win.show()
+    # win = AddEvent()
+    win.show()s
     sys.exit(app.exec())
