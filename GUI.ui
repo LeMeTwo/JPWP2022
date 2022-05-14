@@ -147,7 +147,7 @@ color: rgb(252,252,252);</string>
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="autoFillBackground">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
         <property name="styleSheet">
          <string notr="true">background-color:rgb(26, 72, 170);
