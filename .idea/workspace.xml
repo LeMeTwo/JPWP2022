@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="53db153e-23be-4fb9-998f-513084bee309" name="Changes" comment="Second GUI - adjusted graphics and colors">
+    <list default="true" id="53db153e-23be-4fb9-998f-513084bee309" name="Changes" comment="addEvent GUI - create new addEvent GUI (not working)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI.ui" beforeDir="false" afterPath="$PROJECT_DIR$/GUI.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addEvent.py" beforeDir="false" afterPath="$PROJECT_DIR$/addEvent.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addEvent.ui" beforeDir="false" afterPath="$PROJECT_DIR$/addEvent.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main(obs).py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oldAddEvent.py" beforeDir="false" afterPath="$PROJECT_DIR$/oldAddEvent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oldAddEvent.ui" beforeDir="false" afterPath="$PROJECT_DIR$/oldAddEvent.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +83,7 @@
       <workItem from="1652268137053" duration="207000" />
       <workItem from="1652474193274" duration="6498000" />
       <workItem from="1652481038339" duration="1912000" />
-      <workItem from="1652525289699" duration="25821000" />
+      <workItem from="1652525289699" duration="26465000" />
     </task>
     <task id="LOCAL-00001" summary="Change of details">
       <created>1652458712668</created>
@@ -135,7 +134,21 @@
       <option name="project" value="LOCAL" />
       <updated>1652555023978</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="addEvent GUI - create new addEvent GUI (not working)">
+      <created>1652561288428</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1652561288428</updated>
+    </task>
+    <task id="LOCAL-00009" summary="addEvent GUI - create new addEvent GUI (not working)">
+      <created>1652561299457</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1652561299457</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,10 +172,11 @@
     <MESSAGE value="Second GUI" />
     <MESSAGE value="Second GUI - adjusted scaling" />
     <MESSAGE value="Second GUI - adjusted graphics and colors" />
-    <option name="LAST_COMMIT_MESSAGE" value="Second GUI - adjusted graphics and colors" />
+    <MESSAGE value="addEvent GUI - create new addEvent GUI (not working)" />
+    <option name="LAST_COMMIT_MESSAGE" value="addEvent GUI - create new addEvent GUI (not working)" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/JPWP$main.coverage" NAME="main Coverage Results" MODIFIED="1652560742327" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/JPWP$main.coverage" NAME="main Coverage Results" MODIFIED="1652561883584" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/JPWP2022$main.coverage" NAME="main Coverage Results" MODIFIED="1652267511739" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

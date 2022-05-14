@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(252,252,252)</string>
+  </property>
   <widget class="QDialogButtonBox" name="okcanButtons">
    <property name="geometry">
     <rect>
