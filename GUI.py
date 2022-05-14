@@ -15,7 +15,7 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(1920, 1080)
-        Dialog.setWindowOpacity(0.5)
+        Dialog.setWindowOpacity(1.0)
         Dialog.setStyleSheet("background-color: rgb(0,0,0)")
         self.Widget = QtWidgets.QWidget(Dialog)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Maximum)
