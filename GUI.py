@@ -15,6 +15,7 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(1920, 1080)
+        Dialog.setMaximumSize(QtCore.QSize(16777215, 16777215))
         Dialog.setWindowOpacity(1.0)
         Dialog.setStyleSheet("background-color: rgb(0,0,0)")
         self.Widget = QtWidgets.QWidget(Dialog)
@@ -108,6 +109,7 @@ class Ui_Dialog(object):
         font.setBold(True)
         font.setWeight(75)
         self.textEditCat.setFont(font)
+        self.textEditCat.setFocusPolicy(QtCore.Qt.WheelFocus)
         self.textEditCat.setStyleSheet("background-color:rgb(26, 72, 170);\n"
 "color: rgb(252,252,252);")
         self.textEditCat.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustIgnored)

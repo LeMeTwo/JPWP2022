@@ -10,6 +10,12 @@
     <height>1080</height>
    </rect>
   </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>16777215</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>ToDoList</string>
   </property>
@@ -242,6 +248,9 @@ color: rgb(252,252,252);</string>
           <weight>75</weight>
           <bold>true</bold>
          </font>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::WheelFocus</enum>
         </property>
         <property name="styleSheet">
          <string notr="true">background-color:rgb(26, 72, 170);
