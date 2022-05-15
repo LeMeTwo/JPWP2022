@@ -86,7 +86,7 @@ class Window(QMainWindow, Ui_Dialog):
             toRem = self.SelectCatBox.itemText(self.SelectCatBox.currentIndex())
             self.SelectCatBox.removeItem(self.SelectCatBox.currentIndex())
             for x in CatDatabase:
-                if x.name is toRem:
+                if x.name == toRem:
                     CatDatabase.remove(x)
                     break
 
