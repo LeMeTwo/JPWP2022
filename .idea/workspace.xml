@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="53db153e-23be-4fb9-998f-513084bee309" name="Changes" comment="Instrukcje dla Michałą + dodawnia eventów">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_05_2022_13_23__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_05_2022_13_23__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_05_2022_13_24__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_05_2022_13_24__Changes_.xml" afterDir="false" />
+    <list default="true" id="53db153e-23be-4fb9-998f-513084bee309" name="Changes" comment="addEvent - fix QSS">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -59,7 +57,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\teamg\AppData\Local\Microsoft\WindowsApps\python3.9.exe" />
+      <option name="SDK_HOME" value="D:\Program files studia\JetBrains\PyCharm 2021.3.3\projects\JPWP\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -87,7 +85,8 @@
       <workItem from="1652268137053" duration="207000" />
       <workItem from="1652474193274" duration="6498000" />
       <workItem from="1652481038339" duration="1912000" />
-      <workItem from="1652525289699" duration="35526000" />
+      <workItem from="1652525289699" duration="36199000" />
+      <workItem from="1652614338386" duration="2622000" />
     </task>
     <task id="LOCAL-00001" summary="Change of details">
       <created>1652458712668</created>
@@ -173,7 +172,21 @@
       <option name="project" value="LOCAL" />
       <updated>1652571076554</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="addEvent &amp; GUI working - almost final version of working GUI, without searching mechanism, change of details needed, old versions put in order">
+      <created>1652571148118</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1652571148119</updated>
+    </task>
+    <task id="LOCAL-00014" summary="addEvent - fix QSS">
+      <created>1652616849892</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1652616849892</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,11 +212,11 @@
     <MESSAGE value="Second GUI - adjusted graphics and colors" />
     <MESSAGE value="addEvent GUI - create new addEvent GUI (not working)" />
     <MESSAGE value="addEvent &amp; GUI working - almost final version of working GUI, without searching mechanism, change of details needed, old versions put in order" />
-    <option name="LAST_COMMIT_MESSAGE" value="addEvent &amp; GUI working - almost final version of working GUI, without searching mechanism, change of details needed, old versions put in order" />
+    <MESSAGE value="addEvent - fix QSS" />
+    <option name="LAST_COMMIT_MESSAGE" value="addEvent - fix QSS" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/main_py$main.coverage" NAME="main Coverage Results" MODIFIED="1652543501177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/JPWP$main.coverage" NAME="main Coverage Results" MODIFIED="1652539946919" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/JPWP2022$main.coverage" NAME="main Coverage Results" MODIFIED="1652610268370" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/JPWP$main.coverage" NAME="main Coverage Results" MODIFIED="1652615863917" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/JPWP2022$main.coverage" NAME="main Coverage Results" MODIFIED="1652267511739" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

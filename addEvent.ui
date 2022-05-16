@@ -31,6 +31,9 @@
   <property name="windowTitle">
    <string>Dodaj wydarzenie</string>
   </property>
+  <property name="windowOpacity">
+   <double>0.900000000000000</double>
+  </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(252,252,252)</string>
   </property>
@@ -123,6 +126,9 @@
        <property name="styleSheet">
         <string notr="true">background-color: rgb(252,252,252)</string>
        </property>
+       <property name="dragEnabled">
+        <bool>false</bool>
+       </property>
       </widget>
      </item>
      <item row="2" column="0">
@@ -192,6 +198,9 @@
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(252,252,252)</string>
+       </property>
+       <property name="frame">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -342,8 +351,18 @@
          <height>40</height>
         </size>
        </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">background-image : url(resources/hulicki.jpg)</string>
+       </property>
+       <property name="frame">
+        <bool>true</bool>
        </property>
        <item>
         <property name="text">
@@ -575,6 +594,12 @@
        <property name="styleSheet">
         <string notr="true">background-color: rgb(252,252,252)</string>
        </property>
+       <property name="frameShape">
+        <enum>QFrame::NoFrame</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Plain</enum>
+       </property>
        <property name="text">
         <string>Wybierz godzinę</string>
        </property>
@@ -667,52 +692,52 @@
   </layout>
  </widget>
  <resources/>
- <connections>
+  <connections>
   <connection>
-   <sender>pushRemoveCat</sender>
-   <signal>clicked()</signal>
+   <sender>okcanButtons</sender>
+   <signal>accepted()</signal>
    <receiver>Dialog</receiver>
-   <slot>exec()</slot>
+   <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>180</x>
-     <y>585</y>
+     <x>490</x>
+     <y>244</y>
     </hint>
     <hint type="destinationlabel">
-     <x>180</x>
-     <y>538</y>
+     <x>157</x>
+     <y>274</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>pushAddCat</sender>
-   <signal>clicked()</signal>
+   <sender>okcanButtons</sender>
+   <signal>rejected()</signal>
    <receiver>Dialog</receiver>
-   <slot>exec()</slot>
+   <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>83</x>
-     <y>586</y>
+     <x>516</x>
+     <y>250</y>
     </hint>
     <hint type="destinationlabel">
-     <x>84</x>
-     <y>445</y>
+     <x>286</x>
+     <y>274</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>pushButton</sender>
-   <signal>pressed()</signal>
+   <sender>ifRemindBox</sender>
+   <signal>toggled(bool)</signal>
    <receiver>Dialog</receiver>
-   <slot>open()</slot>
+   <slot>exec()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>203</x>
-     <y>555</y>
+     <x>132</x>
+     <y>102</y>
     </hint>
     <hint type="destinationlabel">
-     <x>203</x>
-     <y>479</y>
+     <x>134</x>
+     <y>150</y>
     </hint>
    </hints>
   </connection>
