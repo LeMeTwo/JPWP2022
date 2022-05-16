@@ -4,7 +4,9 @@ import addEvent
 from GUI import Ui_Dialog
 from PyQt5.QtGui import QIcon
 from PyQt5.uic import loadUi
-from PyQt5.uic.properties import QtGui
+from PyQt5.uic.properties import QtGui, QtCore
+from PyQt5 import QtCore, QtGui, QtWidgets
+
 from PyQt5.QtWidgets import (
     QApplication, QDialog, QMainWindow, QMessageBox
 )
@@ -28,20 +30,6 @@ class Category:
 
 
 # ToDO - może być niepotrzebne, najprawdopodobniej jest
-class Month:
-    def __init__(self):
-        pass
-
-
-class Day:
-    def __init__(self):
-        pass
-
-
-class Hour:
-    def __init__(self):
-        pass
-
 
 class Event:
     # W konstruktorach klas i deklaracji funkcji można dawać domyślne parametry.
@@ -66,12 +54,28 @@ class Event:
     def __eq__(self, other):
         return self.__dict__ == other.__dict__
 
+#To gówno jest do tworzenia labelków dynamicznie
+class ExampleLabel(QLabel):
+    def __init__(self):
+        super().__init__()
+        self.setText("KEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEK")
+        self.setGeometry(100, 100, 100, 100)
+        self.show()
+
 
 class Window(QMainWindow, Ui_Dialog):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setupUi(self)
         self.addCats()
+        #Tutaj masz ustwianie viewList
+        model = QtGui.QStandardItemModel()
+        self.listView.setModel(model)
+
+
+
+    def addLabel(self):
+        self.widget = ExampleLabel(self)
 
     def addCats(self):
         for x in CatDatabase:
@@ -81,7 +85,16 @@ class Window(QMainWindow, Ui_Dialog):
         self.removeCats()
 
     def removeCats(self):
+        #Wstawianie elementów to viewList
+        entries = ['one', 'two', 'three']
+
+        for i in entries:
+            item = QtGui.QStandardItem(i)
+            a = self.listView.model()
+            a.appendRow(item)
+
         try:
+
             # O dziwo jak to wkleję bezpośrednio, to nie działa, jak powinno. Nie porządkować!
             toRem = self.SelectCatBox.itemText(self.SelectCatBox.currentIndex())
             self.SelectCatBox.removeItem(self.SelectCatBox.currentIndex())
@@ -103,14 +116,17 @@ class Window(QMainWindow, Ui_Dialog):
 
     # ToDO - To ma coś robić, zmieniać i wyświetlać eventy na przykład
     # Na razie wyświetla istniejące kategorie.
+
     def onChanged(self):
         print(CatDatabase)
         print(self.SelectCatBox.itemText(self.SelectCatBox.currentIndex()))
+
 
     # Dodawanie kategorii.
     def execAdd(self):
         # Trzeba zdekodować.
         text = self.textEditCat.toPlainText()
+        self.addblock()
 
         try:
 
@@ -181,7 +197,8 @@ class AddEvent(QDialog, addEvent.Ui_Dialog):
                 # ToDO ogarnąć alert przy dodawaniu eventów jak już ogarniemy zawiadamianie
                 newEvent = Event(self.timeEditComb.time().hour(), self.timeEditComb.time().minute(),
                                  self.calendarEd.monthShown(), 0, self.lineDesc.text(), x.name)
-
+                print(self.calendarEd.selectedDate().day())
+#Jakiś komentarzz do commita, usuń to
                 try:
                     if newEvent.__eq__(x.heldEvents[-1]) is True:
                         print("Takie wydarzenie już istnieje.")
@@ -200,6 +217,10 @@ class AddEvent(QDialog, addEvent.Ui_Dialog):
 # Nie musi istnieć, ale w dużych projektach wiele porządkuje.
 # Jak go nie ma, to interpreter jedzie po otwartym pliku od góry na dół.
 # Odpowiednik main z java + ładnie wygląda i wiadomo gdzie zacząć.
+class QtWidgets:
+    pass
+
+
 if __name__ == "__main__":
     # CatDatabase = ["General", "Work"]
     general = Category("General")
