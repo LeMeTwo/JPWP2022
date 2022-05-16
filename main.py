@@ -1,3 +1,4 @@
+import select
 import sys
 import addEvent
 
@@ -71,18 +72,18 @@ class Window(QMainWindow, Ui_Dialog):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setupUi(self)
-        self.addCats()
+        self.firstAddCats()
 
     ####################################################################################################################
     ####################################################################################################################
 
-    # Dodawanie kategorii z CatDatabase do SelectCatBox-a.
+    # Dodawanie kategorii z CatDatabase do SelectCatBox-a na przy otwarciu okna.
     # Do czego to służy?
-    def addCats(self):
+    def firstAddCats(self):
         for x in CatDatabase:
             self.SelectCatBox.addItem(x.name)
 
-    # Element z SelectCatBox jest usuwany z SelectCatBox (po indeksie) i z CatDatabase (po nazwie)
+    # Element z SelectCatBox jest usuwany z SelectCatBox-a i z CatDatabase.
     def removeCats(self):
         try:
             # O dziwo jak to wkleję bezpośrednio, to nie działa, jak powinno. Nie porządkować!
@@ -98,12 +99,14 @@ class Window(QMainWindow, Ui_Dialog):
             for x in CatDatabase:
                 if x.name == toRem:
                     if x.name == "General":
-                        print("Nie można usunąć kategorii " + x.name)
+                        break
+                        # print ("Nie można usunąć kategorii " + x.name)
                     else:
                         CatDatabase.remove(x)
                         print("\nUsunięto kategorię " + x.name)
                         break
 
+            # Już niepotrzebne.
             if not CatDatabase:
                 print("Nie ma czego usuwać")
 
@@ -121,24 +124,29 @@ class Window(QMainWindow, Ui_Dialog):
     ####################################################################################################################
 
     # Dodawanie kategorii.
-    # Element z SelectCatBox trafia na koniec CatDataBase jako tekst.
+    # Element z textEditCat trafia do SelectCatBox-a i na koniec CatDataBase.
     def execAdd(self):
         # Trzeba zdekodować.
         text = self.textEditCat.toPlainText()
 
-        try:
+        # Sprawdza, czy taka kategoria już istnieje.
+        isCat = False
+        for x in CatDatabase:
+            if text == x.name:
+                isCat = True
 
+        try:
             if text is None or text == "":
                 raise TypeError
 
-            elif text not in CatDatabase:
+            elif not isCat:
                 self.SelectCatBox.addItem(text)
                 CatDatabase.append(Category(text))
                 self.textEditCat.clear()
 
             else:
-                print("Proszę wpisać unikalną nazwę kategorii")
-
+                self.textEditCat.clear()
+                print("Istnieje już kategoria o nazwie " + text)
 
         except(TypeError):
             print("Proszę wpisać nazwę kategorii")
