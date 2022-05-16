@@ -193,7 +193,7 @@ class AddEvent(QDialog, addEvent.Ui_Dialog):
         self.label_4.hide()
         self.remindComb.hide()
 
-        # Dodaje kategorie do combobox-ów.
+        # Dodaje kategorie do combobox-a w oknie dodawania wydarzeń.
         for x in CatDatabase:
             self.catCombo.addItem(x.name)
 
