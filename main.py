@@ -5,7 +5,8 @@ import addEvent
 from GUI import Ui_Dialog
 from PyQt5.QtGui import QIcon
 from PyQt5.uic import loadUi
-from PyQt5.uic.properties import QtGui
+from PyQt5.uic.properties import QtGui, QtCore
+from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import (
     QApplication, QDialog, QMainWindow, QMessageBox
 )
@@ -13,35 +14,6 @@ from PyQt5.QtWidgets import (
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
-
-
-class Category:
-    # Podstawowy konstruktor w Pythonie.
-    def __init__(self, name):
-        # Python jest językiem dynamicznie typowanym, ale można wcześniej deklarować zmienne i ich typy.
-        # Pomaga w osiąganiu abstrakcji i przejrzystości kodu.
-        # Gettery są tu niepotrzebne. Klasy prywatne tworzy się przy użyciu _Internal.
-        self.heldEvents = []
-        self.name = name
-
-    def eventToCat(self, toAdd):
-        self.heldEvents.append(toAdd)
-
-
-# ToDO - może być niepotrzebne, najprawdopodobniej jest
-class Month:
-    def __init__(self):
-        pass
-
-
-class Day:
-    def __init__(self):
-        pass
-
-
-class Hour:
-    def __init__(self):
-        pass
 
 
 class Event:
@@ -68,11 +40,57 @@ class Event:
         return self.__dict__ == other.__dict__
 
 
+# ToDo -------------------------------------------------------------
+""""
+# To gówno jest do tworzenia label-ów dynamicznie.
+class ExampleLabel(QLabel):
+    def __init__(self):
+        super().__init__()
+        self.setText("KEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEK")
+        self.setGeometry(100, 100, 100, 100)
+        self.show()
+        """
+# ToDo ---------------------------------------------------------------
+
+
+# Listy / Kategorie
+class Category:
+    # Podstawowy konstruktor w Pythonie.
+    def __init__(self, name):
+        # Python jest językiem dynamicznie typowanym, ale można wcześniej deklarować zmienne i ich typy.
+        # Pomaga w osiąganiu abstrakcji i przejrzystości kodu.
+        # Gettery są tu niepotrzebne. Klasy prywatne tworzy się przy użyciu _Internal.
+        self.heldEvents = []
+        self.name = name
+
+    def eventToCat(self, toAdd):
+        self.heldEvents.append(toAdd)
+
+
+# Główne okno
 class Window(QMainWindow, Ui_Dialog):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setupUi(self)
         self.firstAddCats()
+
+        # ToDo --------------------------------------------------------
+        """
+        # Ustawianie viewList.
+        model = QtGui.QStandardItemModel()
+        self.listView.setModel(model)
+        """
+        # ToDo --------------------------------------------------------
+
+    ####################################################################################################################
+    ####################################################################################################################
+
+    # ToDo ------------------------------------------------------------
+    """
+    def addLabel(self):
+        self.widget = ExampleLabel(self)
+        """
+    # ToDo ------------------------------------------------------------
 
     ####################################################################################################################
     ####################################################################################################################
@@ -85,6 +103,17 @@ class Window(QMainWindow, Ui_Dialog):
 
     # Element z SelectCatBox jest usuwany z SelectCatBox-a i z CatDatabase.
     def removeCats(self):
+
+        # ToDo ---------------------------------------------------------
+        # Wstawianie elementów to viewList
+        entries = ['one', 'two', 'three']
+
+        for i in entries:
+            item = QtGui.QStandardItem(i)
+            a = self.listView.model()
+            a.appendRow(item)
+        # ToDo ---------------------------------------------------------
+
         try:
             # O dziwo jak to wkleję bezpośrednio, to nie działa, jak powinno. Nie porządkować!
             toRem = self.SelectCatBox.itemText(self.SelectCatBox.currentIndex())
@@ -106,15 +135,6 @@ class Window(QMainWindow, Ui_Dialog):
                         print("\nUsunięto kategorię " + x.name)
                         break
 
-            # Już niepotrzebne.
-            if not CatDatabase:
-                print("Nie ma czego usuwać")
-
-                # To już niepotrzebne, bo mamy domyślny obrazek.
-                # Poza tym, nie działa w nowym GUI, ale zostawiam, bo sobie stąd kopiuję.
-                # setWindowIcon(QIcon('resources/Troll-faceProblem.jpg'))
-                # self.listView.setStyleSheet("background-image : url(resources/Troll-faceProblem.jpg);")
-
         except:
             print("Nie ma czego usuwać")
             self.setWindowIcon(QIcon('resources/Troll-faceProblem.jpg'))
@@ -128,6 +148,10 @@ class Window(QMainWindow, Ui_Dialog):
     def execAdd(self):
         # Trzeba zdekodować.
         text = self.textEditCat.toPlainText()
+
+        # ToDo --------------------------------------------------------
+        # self.addblock()
+        # ToDo --------------------------------------------------------
 
         # Sprawdza, czy taka kategoria już istnieje.
         isCat = False
@@ -177,6 +201,9 @@ class Window(QMainWindow, Ui_Dialog):
             dialog = AddEvent(self)
             dialog.exec()
 
+    ####################################################################################################################
+    ####################################################################################################################
+
 
 # Loading i ładowanie głównego okna programu
 class GUI(QDialog):
@@ -209,28 +236,39 @@ class AddEvent(QDialog, addEvent.Ui_Dialog):
 
     def accept(self):
         category = self.catCombo.itemText(self.catCombo.currentIndex())
-        for x in CatDatabase:
-            if category == x.name:
+        for cat in CatDatabase:
+            if category == cat.name:
+
                 # Nie wiem jak dynamicznie tworzyć obiekty, HELP!
-
                 # def __init__(self, hour, day, month, alert=0, desc='', category="General"):
+                # ToDo - ogarnąć alert przy dodawaniu eventów jak już ogarniemy zawiadamianie.
+                # ToDo - ogarnąć ten konstruktor, bo brakuje mu przekazanych parametrów.
 
-                # ToDO ogarnąć alert przy dodawaniu eventów jak już ogarniemy zawiadamianie
                 newEvent = Event(self.timeEditComb.time().hour(), self.timeEditComb.time().minute(),
-                                 self.calendarEd.monthShown(), 0, self.lineDesc.text(), x.name)
+                                 self.calendarEd.monthShown(), 0, self.lineDesc.text(), cat.name)
 
                 try:
-                    if newEvent.__eq__(x.heldEvents[-1]) is True:
+                    if newEvent.__eq__(cat.heldEvents[-1]) is True:
                         print("Takie wydarzenie już istnieje.")
                     else:
-                        x.eventToCat(newEvent)
+                        cat.eventToCat(newEvent)
+                        print("Dodano wydarzenie\t" + self.lineDesc.text() + "\tdo kategorii\t" + cat.name)
 
-                # A co jeśli kategoria jest pusta?
+                # Jeśli kategoria jest pusta:
                 except:
-                    if not x.heldEvents:
-                        x.eventToCat(newEvent)
+                    if not cat.heldEvents:
+                        cat.eventToCat(newEvent)
+                        print("Dodano wydarzenie\t" + self.lineDesc.text() + "\tdo kategorii\t" + cat.name)
                     else:
                         raise TypeError
+
+
+# ToDo -------------------------------------------------------------
+"""
+class QtWidgets:
+    pass
+    """
+# ToDo -------------------------------------------------------------
 
 
 # Standardowe wejście do skryptu Pythona.
