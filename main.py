@@ -73,41 +73,55 @@ class Window(QMainWindow, Ui_Dialog):
         self.setupUi(self)
         self.addCats()
 
+    ####################################################################################################################
+    ####################################################################################################################
+
+    # Dodawanie kategorii z CatDatabase do SelectCatBox-a.
+    # Do czego to służy?
     def addCats(self):
         for x in CatDatabase:
             self.SelectCatBox.addItem(x.name)
 
-    def execRem(self):
-        self.removeCats()
-
+    # Element z SelectCatBox jest usuwany z SelectCatBox (po indeksie) i z CatDatabase (po nazwie)
     def removeCats(self):
         try:
             # O dziwo jak to wkleję bezpośrednio, to nie działa, jak powinno. Nie porządkować!
             toRem = self.SelectCatBox.itemText(self.SelectCatBox.currentIndex())
-            self.SelectCatBox.removeItem(self.SelectCatBox.currentIndex())
+
+            # Jeszcze sobie wybierzemy nazwę/nazwy kategorii, których nie usuwamy.
+            # General na pewno.
+            if toRem == "General":
+                print("\nNie można usunąć kategorii " + toRem)
+            else:
+                self.SelectCatBox.removeItem(self.SelectCatBox.currentIndex())
+
             for x in CatDatabase:
                 if x.name == toRem:
-                    CatDatabase.remove(x)
-                    break
+                    if x.name == "General":
+                        print("Nie można usunąć kategorii " + x.name)
+                    else:
+                        CatDatabase.remove(x)
+                        print("\nUsunięto kategorię " + x.name)
+                        break
 
             if not CatDatabase:
-                # Ogarnij tutaj jak się wyświetla grafiki na przykładzie.
                 print("Nie ma czego usuwać")
-                self.setWindowIcon(QIcon('resources/Troll-faceProblem.jpg'))
-                self.listView.setStyleSheet("background-image : url(resources/Troll-faceProblem.jpg);")
+
+                # To już niepotrzebne, bo mamy domyślny obrazek.
+                # Poza tym, nie działa w nowym GUI, ale zostawiam, bo sobie stąd kopiuję.
+                # setWindowIcon(QIcon('resources/Troll-faceProblem.jpg'))
+                # self.listView.setStyleSheet("background-image : url(resources/Troll-faceProblem.jpg);")
 
         except:
             print("Nie ma czego usuwać")
             self.setWindowIcon(QIcon('resources/Troll-faceProblem.jpg'))
             self.listView.setStyleSheet("background-image : url(resources/Troll-faceProblem.jpg);")
 
-    # ToDO - To ma coś robić, zmieniać i wyświetlać eventy na przykład
-    # Na razie wyświetla istniejące kategorie.
-    def onChanged(self):
-        print(CatDatabase)
-        print(self.SelectCatBox.itemText(self.SelectCatBox.currentIndex()))
+    ####################################################################################################################
+    ####################################################################################################################
 
     # Dodawanie kategorii.
+    # Element z SelectCatBox trafia na koniec CatDataBase jako tekst.
     def execAdd(self):
         # Trzeba zdekodować.
         text = self.textEditCat.toPlainText()
@@ -128,6 +142,21 @@ class Window(QMainWindow, Ui_Dialog):
 
         except(TypeError):
             print("Proszę wpisać nazwę kategorii")
+
+    # Usuwanie kategorii.
+    # Powtórzenie funkcji removeCats.
+    def execRem(self):
+        self.removeCats()
+
+    ####################################################################################################################
+    ####################################################################################################################
+
+    # ToDO - To ma coś robić, zmieniać i wyświetlać eventy na przykład
+    # Na razie wyświetla istniejące kategorie.
+    # Nie używane jak na razie.
+    def onChanged(self):
+        print(CatDatabase)
+        print(self.SelectCatBox.itemText(self.SelectCatBox.currentIndex()))
 
     # Otwiera okienko z dodawaniem eventów.
     def open(self):
@@ -153,8 +182,8 @@ class AddEvent(QDialog, addEvent.Ui_Dialog):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setupUi(self)
-        #self.label_6.hide()
-        #self.remindComb.hide()
+        self.label_4.hide()
+        self.remindComb.hide()
 
         # Dodaje kategorie do combobox-ów.
         for x in CatDatabase:
@@ -162,12 +191,12 @@ class AddEvent(QDialog, addEvent.Ui_Dialog):
 
     # Funkcja otwiera funkcje do przypomnień po zaznaczeniu przycisku.
     # Zauważ, że istnieje już taka funkcja, ale w innej klasie.
-    def execRem(self):
-        if self.label_6.isHidden():
-            self.label_6.show()
+    def execRemBox(self):
+        if self.label_4.isHidden():
+            self.label_4.show()
             self.remindComb.show()
         else:
-            self.label_6.hide()
+            self.label_4.hide()
             self.remindComb.hide()
 
     def accept(self):
