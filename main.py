@@ -105,6 +105,7 @@ class Window(QMainWindow, Ui_Dialog):
     def removeCats(self):
 
         # ToDo ---------------------------------------------------------
+        """
         # Wstawianie elementów to viewList
         entries = ['one', 'two', 'three']
 
@@ -112,6 +113,7 @@ class Window(QMainWindow, Ui_Dialog):
             item = QtGui.QStandardItem(i)
             a = self.listView.model()
             a.appendRow(item)
+            """
         # ToDo ---------------------------------------------------------
 
         try:
@@ -121,7 +123,7 @@ class Window(QMainWindow, Ui_Dialog):
             # Jeszcze sobie wybierzemy nazwę/nazwy kategorii, których nie usuwamy.
             # General na pewno.
             if toRem == "General":
-                print("\nNie można usunąć kategorii " + toRem)
+                print("Nie można usunąć kategorii " + toRem)
             else:
                 self.SelectCatBox.removeItem(self.SelectCatBox.currentIndex())
 
@@ -132,7 +134,7 @@ class Window(QMainWindow, Ui_Dialog):
                         # print ("Nie można usunąć kategorii " + x.name)
                     else:
                         CatDatabase.remove(x)
-                        print("\nUsunięto kategorię " + x.name)
+                        print("Usunięto kategorię " + x.name)
                         break
 
         except:
@@ -167,6 +169,7 @@ class Window(QMainWindow, Ui_Dialog):
                 self.SelectCatBox.addItem(text)
                 CatDatabase.append(Category(text))
                 self.textEditCat.clear()
+                print("Dodano kategorię o nazwie " + text)
 
             else:
                 self.textEditCat.clear()
@@ -203,13 +206,6 @@ class Window(QMainWindow, Ui_Dialog):
 
     ####################################################################################################################
     ####################################################################################################################
-
-
-# Loading i ładowanie głównego okna programu
-class GUI(QDialog):
-    def __init__(self, parent=None):
-        super().__init__(parent)
-        loadUi("GUI.ui", self)
 
 
 # Loading i otwieranie widget-ów.
@@ -249,18 +245,25 @@ class AddEvent(QDialog, addEvent.Ui_Dialog):
 
                 try:
                     if newEvent.__eq__(cat.heldEvents[-1]) is True:
-                        print("Takie wydarzenie już istnieje.")
+                        print("Takie wydarzenie już istnieje")
                     else:
                         cat.eventToCat(newEvent)
-                        print("Dodano wydarzenie\t" + self.lineDesc.text() + "\tdo kategorii\t" + cat.name)
+                        print("Dodano wydarzenie " + self.lineDesc.text() + " do kategorii " + cat.name)
 
                 # Jeśli kategoria jest pusta:
                 except:
                     if not cat.heldEvents:
                         cat.eventToCat(newEvent)
-                        print("Dodano wydarzenie\t" + self.lineDesc.text() + "\tdo kategorii\t" + cat.name)
+                        print("Dodano wydarzenie " + self.lineDesc.text() + " do kategorii " + cat.name)
                     else:
                         raise TypeError
+
+
+# Loading i ładowanie głównego okna programu
+class GUI(QDialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        loadUi("GUI.ui", self)
 
 
 # ToDo -------------------------------------------------------------
