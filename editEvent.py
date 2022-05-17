@@ -267,7 +267,11 @@ class Ui_Dialog(object):
         self.horizontalLayout.addLayout(self.formLayout_2)
 
         self.retranslateUi(Dialog)
+        self.okcanButtons.accepted.connect(Dialog.accept) # type: ignore
+        self.okcanButtons.rejected.connect(Dialog.reject) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(Dialog)
+        self.ifRemindBox.toggled['bool'].connect(Dialog.execRemBox)
+
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate

@@ -373,6 +373,67 @@ class editEvent(QDialog, editEvent.Ui_Dialog):
             self.label_4.hide()
             self.remindComb.hide()
 
+    def accept(self):
+        category = self.catCombo.itemText(self.catCombo.currentIndex())
+
+        #Pętla do szukania eventów do nadpisania
+        for x in CatDatabase:
+            for y in x.heldEvents:
+                if selectedEvent[0] == y.text:
+                    x.heldEvents.remove(y)
+
+        for cat in CatDatabase:
+            if category == cat.name:
+
+                # Nie wiem jak dynamicznie tworzyć obiekty, HELP!
+                # def __init__(self, hour, day, month, alert=0, desc='', category="General"):
+                # ToDo - ogarnąć alert przy dodawaniu eventów jak już ogarniemy zawiadamianie.
+                # ToDo - ogarnąć ten konstruktor, bo brakuje mu przekazanych parametrów.
+
+                newEvent = Event(self.timeEditComb.time().hour(), self.timeEditComb.time().minute(),
+                                 self.calendarEd.selectedDate().day(), self.calendarEd.selectedDate().month(),
+                                 self.calendarEd.selectedDate().year(), 0, self.lineDesc.text(), cat.name)
+
+                try:
+
+                    # Mogą być te same nazwy. To od użytkownika zależy.
+                    """
+                    if newEvent.__eq__(general.heldEvents[-1]) is True:
+                         print("Takie wydarzenie już istnieje")
+                    """
+                    # Zawsze dodajemy do generala i/albo innej kategorii.
+                    # General ma mieć wszystkie wydarzenia
+                    if cat.name != general.name:
+                        cat.eventToCat(newEvent)
+                        general.eventToCat(newEvent)
+                        print("Edytowano wydarzenie " + self.lineDesc.text() + " w kategorii " + cat.name)
+                        print("Edytowano wydarzenie " + self.lineDesc.text() + " w kategorii " + general.name)
+                        self.lineDesc.clear()
+                    else:
+                        cat.eventToCat(newEvent)
+                        print("Edytowano wydarzenie " + self.lineDesc.text() + " w kategorii " + cat.name)
+                        self.lineDesc.clear()
+
+                # Jeśli kategoria jest pusta:
+                except:
+                    if not cat.heldEvents:
+                        if cat.name != general.name:
+                            cat.eventToCat(newEvent)
+                            general.eventToCat(newEvent)
+                            print("Edytowano wydarzenie " + self.lineDesc.text() + " w kategorii " + cat.name)
+                            print("Edytowano wydarzenie " + self.lineDesc.text() + " w kategorii " + general.name)
+                            self.lineDesc.clear()
+                        else:
+                            cat.eventToCat(newEvent)
+                            print("Edytowano wydarzenie " + self.lineDesc.text() + " w kategorii " + cat.name)
+                            self.lineDesc.clear()
+                    else:
+                        raise TypeError
+
+                mainWindow.displayEvent()
+                #ładne zamykanie okienka :3
+                self.reject()
+
 
 
 # Standardowe wejście do skryptu Pythona.
