@@ -346,6 +346,8 @@ class editEvent(QDialog, editEvent.Ui_Dialog):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setupUi(self)
+        self.label_4.hide()
+        self.remindComb.hide()
 
         for x in CatDatabase:
             self.catCombo.addItem(x.name)
@@ -448,7 +450,6 @@ if __name__ == "__main__":
     CatDatabase = [general, work, Ludwin]
     app = QApplication(sys.argv)
     win = Window()
-    # win = AddEvent()
     win.show()
     mainWindow = win
     sys.exit(app.exec())
