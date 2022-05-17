@@ -22,6 +22,7 @@ from PyQt5.QtCore import *
 
 mainWindow = None
 selectedEvent = ['gfs', 'Work', '17.05.2022', '00:00:00']
+ogModel = None
 
 def fuckGarbageColletor(selecteevent):
     return selecteevent
@@ -88,9 +89,20 @@ class Window(QMainWindow, Ui_Dialog):
         super().__init__(parent)
         self.setupUi(self)
         self.firstAddCats()
+        #Testowy event
+        self.listView.model().appendRow(QtGui.QStandardItem("lol"))
+
 
     ####################################################################################################################
     ####################################################################################################################
+
+    #Zabijcie mnie bruh
+    def onChanged2(self, text):
+        i = 0
+        ogModel2 = self.listView.model()
+        i = 1
+
+
 
     def on_clicked(self, index):
         self.listView.setCurrentIndex(index)
@@ -436,10 +448,6 @@ class editEvent(QDialog, editEvent.Ui_Dialog):
                 mainWindow.displayEvent()
                 #ładne zamykanie okienka :3
                 self.reject()
-
-    #Trzeba wymyśleć dlaczego nic się nie dzieje
-    def update(self):
-        print("Lol")
 
 
 
