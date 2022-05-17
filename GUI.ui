@@ -414,8 +414,16 @@ color: rgb(252,252,252);</string>
     </item>
     <item>
      <widget class="QListView" name="listView">
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="styleSheet">
-       <string notr="true">background-image : url(resources/Space.jpg)</string>
+       <string notr="true">background-image : url(resources/Space.jpg);
+color: rgb(252,252,252)</string>
       </property>
      </widget>
     </item>
@@ -480,6 +488,22 @@ color: rgb(252,252,252);</string>
     <hint type="destinationlabel">
      <x>203</x>
      <y>479</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>SelectCatBox</sender>
+   <signal>currentIndexChanged(QString)</signal>
+   <receiver>Dialog</receiver>
+   <slot>displayEvent()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>163</x>
+     <y>95</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>599</x>
+     <y>399</y>
     </hint>
    </hints>
   </connection>

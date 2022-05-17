@@ -176,7 +176,13 @@ class Ui_Dialog(object):
         self.verticalLayout.addWidget(self.pushButton)
         self.horizontalLayout_2.addLayout(self.verticalLayout)
         self.listView = QtWidgets.QListView(self.Widget)
-        self.listView.setStyleSheet("background-image : url(resources/Space.jpg)")
+        font = QtGui.QFont()
+        font.setPointSize(16)
+        font.setBold(True)
+        font.setWeight(75)
+        self.listView.setFont(font)
+        self.listView.setStyleSheet("background-image : url(resources/Space.jpg);\n"
+"color: rgb(252,252,252)")
         self.listView.setObjectName("listView")
         self.horizontalLayout_2.addWidget(self.listView)
         Dialog.setCentralWidget(self.Widget)
@@ -192,6 +198,7 @@ class Ui_Dialog(object):
         self.pushRemoveCat.clicked.connect(Dialog.execRem)
         self.pushAddCat.clicked.connect(Dialog.execAdd)
         self.pushButton.pressed.connect(Dialog.open)
+        self.SelectCatBox.currentIndexChanged['QString'].connect(Dialog.displayEvent)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
