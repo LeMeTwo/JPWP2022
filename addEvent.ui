@@ -729,7 +729,7 @@
    <sender>ifRemindBox</sender>
    <signal>toggled(bool)</signal>
    <receiver>Dialog</receiver>
-   <slot>exec()</slot>
+   <slot>execRemBox()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>132</x>

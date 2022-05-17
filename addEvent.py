@@ -270,7 +270,7 @@ class Ui_Dialog(object):
         self.retranslateUi(Dialog)
         self.okcanButtons.accepted.connect(Dialog.accept)
         self.okcanButtons.rejected.connect(Dialog.reject)
-        self.ifRemindBox.toggled['bool'].connect(Dialog.exec)
+        self.ifRemindBox.toggled['bool'].connect(Dialog.execRemBox)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
