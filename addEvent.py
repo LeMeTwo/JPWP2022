@@ -218,7 +218,7 @@ class Ui_Dialog(object):
         self.calendarEd.setMaximumDate(QtCore.QDate(2101, 9, 11))
         self.calendarEd.setObjectName("calendarEd")
         self.formLayout_2.setWidget(1, QtWidgets.QFormLayout.FieldRole, self.calendarEd)
-        spacerItem3 = QtWidgets.QSpacerItem(20, 90, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Maximum)
+        spacerItem3 = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Maximum)
         self.formLayout_2.setItem(2, QtWidgets.QFormLayout.SpanningRole, spacerItem3)
         self.label_6 = QtWidgets.QLabel(Dialog)
         self.label_6.setMinimumSize(QtCore.QSize(150, 40))
@@ -249,7 +249,7 @@ class Ui_Dialog(object):
         self.timeEditComb.setStyleSheet("background-color: rgb(252,252,252)")
         self.timeEditComb.setObjectName("timeEditComb")
         self.formLayout_2.setWidget(3, QtWidgets.QFormLayout.FieldRole, self.timeEditComb)
-        spacerItem4 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Maximum)
+        spacerItem4 = QtWidgets.QSpacerItem(20, 80, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Maximum)
         self.formLayout_2.setItem(4, QtWidgets.QFormLayout.SpanningRole, spacerItem4)
         self.okcanButtons = QtWidgets.QDialogButtonBox(Dialog)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
@@ -270,7 +270,7 @@ class Ui_Dialog(object):
         self.retranslateUi(Dialog)
         self.okcanButtons.accepted.connect(Dialog.accept)
         self.okcanButtons.rejected.connect(Dialog.reject)
-        self.ifRemindBox.toggled['bool'].connect(Dialog.exec)
+        self.ifRemindBox.toggled['bool'].connect(Dialog.execRemBox)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):

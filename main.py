@@ -1,3 +1,4 @@
+import select
 import sys
 import addEvent
 
@@ -6,7 +7,6 @@ from PyQt5.QtGui import QIcon
 from PyQt5.uic import loadUi
 from PyQt5.uic.properties import QtGui, QtCore
 from PyQt5 import QtCore, QtGui, QtWidgets
-
 from PyQt5.QtWidgets import (
     QApplication, QDialog, QMainWindow, QMessageBox
 )
@@ -16,6 +16,26 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 
 
+# ToDo -------------------------------------------------------------
+
+# Co to jest?
+class QtWidgets:
+    pass
+
+
+# To gówno jest do tworzenia label-ów dynamicznie.
+class ExampleLabel(QLabel):
+    def __init__(self):
+        super().__init__()
+        self.setText("Example")
+        self.setGeometry(100, 100, 100, 100)
+        self.show()
+
+
+# ToDo ---------------------------------------------------------------
+
+
+# Listy / Kategorie
 class Category:
     # Podstawowy konstruktor w Pythonie.
     def __init__(self, name):
@@ -29,20 +49,19 @@ class Category:
         self.heldEvents.append(toAdd)
 
 
-# ToDO - może być niepotrzebne, najprawdopodobniej jest
-
 class Event:
     # W konstruktorach klas i deklaracji funkcji można dawać domyślne parametry.
     # Brakowało mi tego w Javie.
     # Są one używane, jeśli do konstruktora lub funkcji zostanie przekazany pusty parametr.
-    def __init__(self, hour, minutes, day, month, alert=0, desc="", category="General"):
+    def __init__(self, hour, minutes, day, month, year, alert=0, text="", category="General"):
         self.day = day
         self.hour = hour
         self.minutes = minutes
         self.month = month
-        self.desc = desc
+        self.text = text
         self.category = category
         self.alert = alert
+        self.year = year
 
         # To może być głupie, zastanowię się potem.
         # Widzę potencjalny NullPointerException.
@@ -54,96 +73,95 @@ class Event:
     def __eq__(self, other):
         return self.__dict__ == other.__dict__
 
-#To gówno jest do tworzenia labelków dynamicznie
-class ExampleLabel(QLabel):
-    def __init__(self):
-        super().__init__()
-        self.setText("KEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEK")
-        self.setGeometry(100, 100, 100, 100)
-        self.show()
 
-
+# Główne okno
 class Window(QMainWindow, Ui_Dialog):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setupUi(self)
-        self.addCats()
-        #Tutaj masz ustwianie viewList
-        model = QtGui.QStandardItemModel()
-        self.listView.setModel(model)
+        self.firstAddCats()
 
+    ####################################################################################################################
+    ####################################################################################################################
 
-
-    def addLabel(self):
-        self.widget = ExampleLabel(self)
-
-    def addCats(self):
+    # Dodawanie kategorii z CatDatabase do SelectCatBox-a na przy otwarciu okna.
+    def firstAddCats(self):
         for x in CatDatabase:
             self.SelectCatBox.addItem(x.name)
 
-    def execRem(self):
-        self.removeCats()
-
+    # Element z SelectCatBox jest usuwany z SelectCatBox-a i z CatDatabase.
     def removeCats(self):
-        #Wstawianie elementów to viewList
-        entries = ['one', 'two', 'three']
-
-        for i in entries:
-            item = QtGui.QStandardItem(i)
-            a = self.listView.model()
-            a.appendRow(item)
 
         try:
-
             # O dziwo jak to wkleję bezpośrednio, to nie działa, jak powinno. Nie porządkować!
             toRem = self.SelectCatBox.itemText(self.SelectCatBox.currentIndex())
-            self.SelectCatBox.removeItem(self.SelectCatBox.currentIndex())
+
+            # Jeszcze sobie wybierzemy nazwę/nazwy kategorii, których nie usuwamy.
+            # General na pewno.
+            if toRem == general.name:
+                print("Nie można usunąć kategorii " + toRem)
+            else:
+                self.SelectCatBox.removeItem(self.SelectCatBox.currentIndex())
+
             for x in CatDatabase:
                 if x.name == toRem:
-                    CatDatabase.remove(x)
-                    break
-
-            if not CatDatabase:
-                # Ogarnij tutaj jak się wyświetla grafiki na przykładzie.
-                print("Nie ma czego usuwać")
-                self.setWindowIcon(QIcon('resources/Troll-faceProblem.jpg'))
-                self.listView.setStyleSheet("background-image : url(resources/Troll-faceProblem.jpg);")
+                    if x.name == general.name:
+                        break
+                        # print ("Nie można usunąć kategorii " + x.name)
+                    else:
+                        CatDatabase.remove(x)
+                        print("Usunięto kategorię " + x.name)
+                        break
 
         except:
             print("Nie ma czego usuwać")
             self.setWindowIcon(QIcon('resources/Troll-faceProblem.jpg'))
             self.listView.setStyleSheet("background-image : url(resources/Troll-faceProblem.jpg);")
 
-    # ToDO - To ma coś robić, zmieniać i wyświetlać eventy na przykład
-    # Na razie wyświetla istniejące kategorie.
+        # Ważne, żeby po usunięciu kategorii zniknęły jej Eventy z ViewList-y.
+        self.displayEvent()
 
-    def onChanged(self):
-        print(CatDatabase)
-        print(self.SelectCatBox.itemText(self.SelectCatBox.currentIndex()))
+    ####################################################################################################################
+    ####################################################################################################################
 
+    # Pod te funkcje podpięte są przyciski.
 
     # Dodawanie kategorii.
     def execAdd(self):
         # Trzeba zdekodować.
         text = self.textEditCat.toPlainText()
-        self.addblock()
+
+        # ToDo --------------------------------------------------------
+        # Co to jest?
+        # self.addblock()
+        # ToDo --------------------------------------------------------
+
+        # Sprawdza, czy taka kategoria już istnieje.
+        isCat = False
+        for x in CatDatabase:
+            if text == x.name:
+                isCat = True
 
         try:
-
             if text is None or text == "":
                 raise TypeError
 
-            elif text not in CatDatabase:
+            elif not isCat:
                 self.SelectCatBox.addItem(text)
                 CatDatabase.append(Category(text))
                 self.textEditCat.clear()
+                print("Dodano kategorię o nazwie " + text)
 
             else:
-                print("Proszę wpisać unikalną nazwę kategorii")
-
+                self.textEditCat.clear()
+                print("Istnieje już kategoria o nazwie " + text)
 
         except(TypeError):
             print("Proszę wpisać nazwę kategorii")
+
+    # Usuwanie kategorii.
+    def execRem(self):
+        self.removeCats()
 
     # Otwiera okienko z dodawaniem eventów.
     def open(self):
@@ -156,6 +174,137 @@ class Window(QMainWindow, Ui_Dialog):
             dialog = AddEvent(self)
             dialog.exec()
 
+        # IDEA:
+        # Przyjmujemy string z SelectCatBox-a z nazwą aktualnie wybranej kategorii.
+        # Szukamy tej kategorii w CatDataBase po nazwie i do specjalnie nowo stworzonej tablicy wrzucamy jej eventy.
+        # Wypisujemy eventy do ListView.
+
+    # Wyświetla wydarzenia z wybranej kategorii.
+    def displayEvent(self):
+
+        # Ustawianie viewList z poziomu okna Window.
+        # To ma tu być, bo wtedy dynamicznie zmieniają się wydarzenia w zależności od kategorii.
+        model = QtGui.QStandardItemModel()
+        self.listView.setModel(model)
+
+        # Nagłówek i uzupełnianie viewList.
+        row = self.listView.model()
+        # label = QtGui.QStandardItem("Treść\t\tKategoria\tData\t\t\tGodzina")
+        # row.appendRow(label)
+
+        actCat = self.SelectCatBox.itemText(self.SelectCatBox.currentIndex())
+        dispEvents = []
+
+        # Wypisuje nazwę kategorii przy zmianie kategorii w SelectCatBox.
+        # print(actCat)
+
+        for x in CatDatabase:
+            if x.name == actCat:
+                dispEvents = x.heldEvents
+
+        for e in dispEvents:
+            item = QtGui.QStandardItem("  " + e.text + "\t\t" + e.category + "\t\t"
+                                       + str(e.day).zfill(2) + "." + str(e.month).zfill(2) + "." + str(e.year).zfill(2)
+                                       + "\t\t" + str(e.hour).zfill(2) + ":" + str(e.minutes).zfill(2) + ":00")
+            row.appendRow(item)
+
+    ####################################################################################################################
+    ####################################################################################################################
+
+    # ToDO - To ma coś robić, zmieniać i wyświetlać eventy na przykład
+    # Na razie wyświetla istniejące kategorie.
+    # Nie używane jak na razie.
+    def onChanged(self):
+        print(CatDatabase)
+        print(self.SelectCatBox.itemText(self.SelectCatBox.currentIndex()))
+
+    # Może kiedyś tego użyjemy.
+    def addLabel(self):
+        self.widget = ExampleLabel(self)
+
+    ####################################################################################################################
+    ####################################################################################################################
+
+
+# Loading i otwieranie widget-ów.
+class AddEvent(QDialog, addEvent.Ui_Dialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setupUi(self)
+        self.label_4.hide()
+        self.remindComb.hide()
+
+        # Dodaje kategorie do combobox-a w oknie dodawania wydarzeń.
+        for x in CatDatabase:
+            self.catCombo.addItem(x.name)
+
+    # Funkcja otwiera funkcje do przypomnień po zaznaczeniu przycisku.
+    # Zauważ, że istnieje już taka funkcja, ale w innej klasie.
+    def execRemBox(self):
+        if self.label_4.isHidden():
+            self.label_4.show()
+            self.remindComb.show()
+        else:
+            self.label_4.hide()
+            self.remindComb.hide()
+
+    def accept(self):
+
+        category = self.catCombo.itemText(self.catCombo.currentIndex())
+        for cat in CatDatabase:
+            if category == cat.name:
+
+                # Nie wiem jak dynamicznie tworzyć obiekty, HELP!
+                # def __init__(self, hour, day, month, alert=0, desc='', category="General"):
+                # ToDo - ogarnąć alert przy dodawaniu eventów jak już ogarniemy zawiadamianie.
+                # ToDo - ogarnąć ten konstruktor, bo brakuje mu przekazanych parametrów.
+
+                newEvent = Event(self.timeEditComb.time().hour(), self.timeEditComb.time().minute(),
+                                 self.calendarEd.selectedDate().day(), self.calendarEd.selectedDate().month(),
+                                 self.calendarEd.selectedDate().year(), 0, self.lineDesc.text(), cat.name)
+
+                try:
+                    # Mogą być te same nazwy. To od użytkownika zależy.
+                    """
+                    if newEvent.__eq__(general.heldEvents[-1]) is True:
+                         print("Takie wydarzenie już istnieje")
+                    """
+                    # Zawsze dodajemy do generala i/albo innej kategorii.
+                    # General ma mieć wszystkie wydarzenia
+                    if cat.name != general.name:
+                        cat.eventToCat(newEvent)
+                        general.eventToCat(newEvent)
+                        print("Dodano wydarzenie " + self.lineDesc.text() + " do kategorii " + cat.name)
+                        print("Dodano wydarzenie " + self.lineDesc.text() + " do kategorii " + general.name)
+                        self.lineDesc.clear()
+                    else:
+                        cat.eventToCat(newEvent)
+                        print("Dodano wydarzenie " + self.lineDesc.text() + " do kategorii " + cat.name)
+                        self.lineDesc.clear()
+
+                # Jeśli kategoria jest pusta:
+                except:
+                    if not cat.heldEvents:
+                        if cat.name != general.name:
+                            cat.eventToCat(newEvent)
+                            general.eventToCat(newEvent)
+                            print("Dodano wydarzenie " + self.lineDesc.text() + " do kategorii " + cat.name)
+                            print("Dodano wydarzenie " + self.lineDesc.text() + " do kategorii " + general.name)
+                            self.lineDesc.clear()
+                        else:
+                            cat.eventToCat(newEvent)
+                            print("Dodano wydarzenie " + self.lineDesc.text() + " do kategorii " + cat.name)
+                            self.lineDesc.clear()
+                    else:
+                        raise TypeError
+
+        """
+        # Wyświetlanie wydarzeń po zamknięciu okna przyciskiem OK.
+        # Fajnie jakby zadziałało.
+        w = Window()
+        w.displayEvent()
+        """
+
 
 # Loading i ładowanie głównego okna programu
 class GUI(QDialog):
@@ -164,68 +313,16 @@ class GUI(QDialog):
         loadUi("GUI.ui", self)
 
 
-# Loading i otwieranie widget-ów.
-class AddEvent(QDialog, addEvent.Ui_Dialog):
-    def __init__(self, parent=None):
-        super().__init__(parent)
-        self.setupUi(self)
-        #self.label_6.hide()
-        #self.remindComb.hide()
-
-        # Dodaje kategorie do combobox-ów.
-        for x in CatDatabase:
-            self.catCombo.addItem(x.name)
-
-    # Funkcja otwiera funkcje do przypomnień po zaznaczeniu przycisku.
-    # Zauważ, że istnieje już taka funkcja, ale w innej klasie.
-    def execRem(self):
-        if self.label_6.isHidden():
-            self.label_6.show()
-            self.remindComb.show()
-        else:
-            self.label_6.hide()
-            self.remindComb.hide()
-
-    def accept(self):
-        category = self.catCombo.itemText(self.catCombo.currentIndex())
-        for x in CatDatabase:
-            if category == x.name:
-                # Nie wiem jak dynamicznie tworzyć obiekty, HELP!
-
-                # def __init__(self, hour, day, month, alert=0, desc='', category="General"):
-
-                # ToDO ogarnąć alert przy dodawaniu eventów jak już ogarniemy zawiadamianie
-                newEvent = Event(self.timeEditComb.time().hour(), self.timeEditComb.time().minute(),
-                                 self.calendarEd.monthShown(), 0, self.lineDesc.text(), x.name)
-                print(self.calendarEd.selectedDate().day())
-#Jakiś komentarzz do commita, usuń to
-                try:
-                    if newEvent.__eq__(x.heldEvents[-1]) is True:
-                        print("Takie wydarzenie już istnieje.")
-                    else:
-                        x.eventToCat(newEvent)
-
-                # A co jeśli kategoria jest pusta?
-                except:
-                    if not x.heldEvents:
-                        x.eventToCat(newEvent)
-                    else:
-                        raise TypeError
-
-
 # Standardowe wejście do skryptu Pythona.
 # Nie musi istnieć, ale w dużych projektach wiele porządkuje.
 # Jak go nie ma, to interpreter jedzie po otwartym pliku od góry na dół.
 # Odpowiednik main z java + ładnie wygląda i wiadomo gdzie zacząć.
-class QtWidgets:
-    pass
-
-
 if __name__ == "__main__":
     # CatDatabase = ["General", "Work"]
     general = Category("General")
     work = Category("Work")
-    CatDatabase = [general, work]
+    Ludwin = Category("Ludwin")
+    CatDatabase = [general, work, Ludwin]
     app = QApplication(sys.argv)
     win = Window()
     # win = AddEvent()

@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1920</width>
-    <height>1080</height>
+    <width>1200</width>
+    <height>800</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>700</width>
+    <height>500</height>
+   </size>
   </property>
   <property name="maximumSize">
    <size>
@@ -27,7 +33,7 @@
   </property>
   <widget class="QWidget" name="Widget">
    <property name="sizePolicy">
-    <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
      <horstretch>0</horstretch>
      <verstretch>0</verstretch>
     </sizepolicy>
@@ -40,8 +46,8 @@
    </property>
    <property name="maximumSize">
     <size>
-     <width>1920</width>
-     <height>1080</height>
+     <width>16777215</width>
+     <height>16777215</height>
     </size>
    </property>
    <property name="styleSheet">
@@ -111,7 +117,7 @@
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color:rgb(26, 72, 170);
+         <string notr="true">background-color: rgb(112, 182, 252);
 color: rgb(252,252,252);</string>
         </property>
         <property name="text">
@@ -168,22 +174,6 @@ color: rgb(252,252,252);</string>
        </widget>
       </item>
       <item>
-       <spacer name="verticalSpacer">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeType">
-         <enum>QSizePolicy::Maximum</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>80</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
        <widget class="QLabel" name="label">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -211,7 +201,7 @@ color: rgb(252,252,252);</string>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color:rgb(26, 72, 170);
+         <string notr="true">background-color: rgb(112, 182, 252);
 color: rgb(252,252,252);</string>
         </property>
         <property name="text">
@@ -306,7 +296,7 @@ color: rgb(252,252,252);</string>
            </font>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: rgb(112, 182, 252);
+           <string notr="true">background-color:rgb(26, 72, 170);
 color: rgb(252,252,252);</string>
           </property>
           <property name="text">
@@ -342,7 +332,7 @@ color: rgb(252,252,252);</string>
            </font>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: rgb(112, 182, 252);
+           <string notr="true">background-color:rgb(26, 72, 170);
 color: rgb(252,252,252);</string>
           </property>
           <property name="text">
@@ -353,7 +343,7 @@ color: rgb(252,252,252);</string>
        </layout>
       </item>
       <item>
-       <spacer name="verticalSpacer_2">
+       <spacer name="verticalSpacer">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
         </property>
@@ -367,6 +357,84 @@ color: rgb(252,252,252);</string>
          </size>
         </property>
        </spacer>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_3">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>200</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>400</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::WheelFocus</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(112, 182, 252);
+color: rgb(252,252,252);</string>
+        </property>
+        <property name="text">
+         <string>Szukaj wydarzenia</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTextBrowser" name="textBrowser">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>200</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>400</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::StrongFocus</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color:rgb(26, 72, 170);
+color: rgb(252,252,252);</string>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QPushButton" name="pushButton">
@@ -408,8 +476,16 @@ color: rgb(252,252,252);</string>
     </item>
     <item>
      <widget class="QListView" name="listView">
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="styleSheet">
-       <string notr="true">background-image : url(resources/Space.jpg)</string>
+       <string notr="true">background-image : url(resources/Space.jpg);
+color: rgb(252,252,252)</string>
       </property>
      </widget>
     </item>
@@ -420,7 +496,7 @@ color: rgb(252,252,252);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1920</width>
+     <width>1200</width>
      <height>21</height>
     </rect>
    </property>
@@ -474,6 +550,22 @@ color: rgb(252,252,252);</string>
     <hint type="destinationlabel">
      <x>203</x>
      <y>479</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>SelectCatBox</sender>
+   <signal>currentIndexChanged(QString)</signal>
+   <receiver>Dialog</receiver>
+   <slot>displayEvent()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>163</x>
+     <y>95</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>599</x>
+     <y>399</y>
     </hint>
    </hints>
   </connection>

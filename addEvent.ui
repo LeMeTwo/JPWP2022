@@ -565,7 +565,7 @@
        <property name="sizeHint" stdset="0">
         <size>
          <width>20</width>
-         <height>90</height>
+         <height>20</height>
         </size>
        </property>
       </spacer>
@@ -648,7 +648,7 @@
        <property name="sizeHint" stdset="0">
         <size>
          <width>20</width>
-         <height>40</height>
+         <height>80</height>
         </size>
        </property>
       </spacer>
@@ -692,7 +692,7 @@
   </layout>
  </widget>
  <resources/>
-  <connections>
+ <connections>
   <connection>
    <sender>okcanButtons</sender>
    <signal>accepted()</signal>
@@ -729,7 +729,7 @@
    <sender>ifRemindBox</sender>
    <signal>toggled(bool)</signal>
    <receiver>Dialog</receiver>
-   <slot>exec()</slot>
+   <slot>execRemBox()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>132</x>
