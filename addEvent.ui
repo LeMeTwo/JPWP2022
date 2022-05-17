@@ -565,7 +565,7 @@
        <property name="sizeHint" stdset="0">
         <size>
          <width>20</width>
-         <height>90</height>
+         <height>20</height>
         </size>
        </property>
       </spacer>
@@ -648,7 +648,7 @@
        <property name="sizeHint" stdset="0">
         <size>
          <width>20</width>
-         <height>40</height>
+         <height>80</height>
         </size>
        </property>
       </spacer>
@@ -722,22 +722,6 @@
     <hint type="destinationlabel">
      <x>286</x>
      <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>ifRemindBox</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>Dialog</receiver>
-   <slot>execRemBox()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>132</x>
-     <y>102</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>134</x>
-     <y>150</y>
     </hint>
    </hints>
   </connection>
