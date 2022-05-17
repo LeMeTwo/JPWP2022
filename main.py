@@ -1,6 +1,7 @@
 import select
 import sys
 import addEvent
+import editEvent
 
 from GUI import Ui_Dialog
 from PyQt5.QtGui import QIcon
@@ -20,6 +21,11 @@ from PyQt5.QtCore import *
 
 
 mainWindow = None
+selectedEvent = ['gfs', 'Work', '17.05.2022', '00:00:00']
+
+def fuckGarbageColletor(selecteevent):
+    return selecteevent
+
 # Co to jest?
 class QtWidgets:
     pass
@@ -89,7 +95,21 @@ class Window(QMainWindow, Ui_Dialog):
     def on_clicked(self, index):
         self.listView.setCurrentIndex(index)
         item = self.listView.currentIndex()
-        print(item.data())
+        itemdata = item.data()
+        splitted = itemdata.split("\t")
+        for x in splitted:
+            if x == "":
+                splitted.remove(x)
+
+        splitted[0] = splitted[0][2:]
+
+        #Wooow ale to głupie
+        selectedEvent.clear()
+        for x in splitted:
+            selectedEvent.append(x)
+
+        dialog = editEvent(self)
+        dialog.exec()
 
     # Dodawanie kategorii z CatDatabase do SelectCatBox-a na przy otwarciu okna.
     def firstAddCats(self):
@@ -320,6 +340,42 @@ class GUI(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
         loadUi("GUI.ui", self)
+
+
+class editEvent(QDialog, editEvent.Ui_Dialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setupUi(self)
+
+        for x in CatDatabase:
+            self.catCombo.addItem(x.name)
+
+        print(selectedEvent)
+
+        self.setupik()
+
+
+    def setupik(self):
+        self.lineDesc.setText(selectedEvent[0])
+        self.calendarEd.setSelectedDate(QDate(int(selectedEvent[2][6:]), int(selectedEvent[2][0:1]), int(selectedEvent[2][3:4])))
+        time = selectedEvent[3].split(":")
+        self.timeEditComb.setTime(QTime(int(time[0]), int(time[1]), int(time[2])))
+
+        i = 0
+        for x in CatDatabase:
+            if x.name == selectedEvent[1]:
+                self.catCombo.setCurrentIndex(i)
+                print(x.name, self.catCombo.currentIndex())
+            i += 1
+
+    def execRemBox(self):
+        if self.label_4.isHidden():
+            self.label_4.show()
+            self.remindComb.show()
+        else:
+            self.label_4.hide()
+            self.remindComb.hide()
+
 
 
 # Standardowe wejście do skryptu Pythona.
