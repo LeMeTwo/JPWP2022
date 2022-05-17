@@ -235,6 +235,8 @@ class Ui_Dialog(object):
         self.pushButton.pressed.connect(Dialog.open)
         self.SelectCatBox.currentIndexChanged['QString'].connect(Dialog.displayEvent)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
+        self.listView.clicked[QtCore.QModelIndex].connect(self.on_clicked)
+
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate

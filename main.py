@@ -18,6 +18,8 @@ from PyQt5.QtCore import *
 
 # ToDo -------------------------------------------------------------
 
+
+mainWindow = None
 # Co to jest?
 class QtWidgets:
     pass
@@ -83,6 +85,11 @@ class Window(QMainWindow, Ui_Dialog):
 
     ####################################################################################################################
     ####################################################################################################################
+
+    def on_clicked(self, index):
+        self.listView.setCurrentIndex(index)
+        item = self.listView.currentIndex()
+        print(item.data())
 
     # Dodawanie kategorii z CatDatabase do SelectCatBox-a na przy otwarciu okna.
     def firstAddCats(self):
@@ -208,6 +215,8 @@ class Window(QMainWindow, Ui_Dialog):
                                        + "\t\t" + str(e.hour).zfill(2) + ":" + str(e.minutes).zfill(2) + ":00")
             row.appendRow(item)
 
+        #self.listView.setCurrentIndex(self.entry.indexFromItem(item))
+
     ####################################################################################################################
     ####################################################################################################################
 
@@ -298,12 +307,12 @@ class AddEvent(QDialog, addEvent.Ui_Dialog):
                     else:
                         raise TypeError
 
-        """
+
         # Wyświetlanie wydarzeń po zamknięciu okna przyciskiem OK.
         # Fajnie jakby zadziałało.
-        w = Window()
-        w.displayEvent()
-        """
+        mainWindow.displayEvent()
+
+
 
 
 # Loading i ładowanie głównego okna programu
@@ -327,4 +336,5 @@ if __name__ == "__main__":
     win = Window()
     # win = AddEvent()
     win.show()
+    mainWindow = win
     sys.exit(app.exec())
