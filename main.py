@@ -350,8 +350,6 @@ class editEvent(QDialog, editEvent.Ui_Dialog):
         for x in CatDatabase:
             self.catCombo.addItem(x.name)
 
-        print(selectedEvent)
-
         self.setupik()
 
 
@@ -365,7 +363,6 @@ class editEvent(QDialog, editEvent.Ui_Dialog):
         for x in CatDatabase:
             if x.name == selectedEvent[1]:
                 self.catCombo.setCurrentIndex(i)
-                print(x.name, self.catCombo.currentIndex())
             i += 1
 
     def execRemBox(self):
