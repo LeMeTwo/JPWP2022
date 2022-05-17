@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="53db153e-23be-4fb9-998f-513084bee309" name="Changes" comment="GUI - display function linked">
-      <change beforePath="$PROJECT_DIR$/addEvent.ui" beforeDir="false" afterPath="$PROJECT_DIR$/addEvent.ui" afterDir="false" />
+    <list default="true" id="53db153e-23be-4fb9-998f-513084bee309" name="Changes" comment="Change of details">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +87,7 @@
       <workItem from="1652481038339" duration="1912000" />
       <workItem from="1652525289699" duration="36199000" />
       <workItem from="1652614338386" duration="2648000" />
-      <workItem from="1652707534098" duration="30501000" />
+      <workItem from="1652707534098" duration="33384000" />
     </task>
     <task id="LOCAL-00001" summary="Change of details">
       <created>1652458712668</created>
@@ -263,7 +264,28 @@
       <option name="project" value="LOCAL" />
       <updated>1652747128406</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Change of details">
+      <created>1652747238032</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1652747238032</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Change of details">
+      <created>1652747546339</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1652747546339</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Change of details">
+      <created>1652747611462</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1652747611462</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -281,7 +303,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Change of details" />
     <MESSAGE value="First refactoring" />
     <MESSAGE value="First GUI" />
     <MESSAGE value="Second GUI" />
@@ -301,10 +322,11 @@
     <MESSAGE value="GUI - GUI fits every screen" />
     <MESSAGE value="main - added: basic event display function, display logic, accept function adjustment, refactoring and  change of details" />
     <MESSAGE value="GUI - display function linked" />
-    <option name="LAST_COMMIT_MESSAGE" value="GUI - display function linked" />
+    <MESSAGE value="Change of details" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change of details" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/JPWP$main.coverage" NAME="main Coverage Results" MODIFIED="1652746939304" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/JPWP$main.coverage" NAME="main Coverage Results" MODIFIED="1652750019551" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/JPWP2022$main.coverage" NAME="main Coverage Results" MODIFIED="1652267511739" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

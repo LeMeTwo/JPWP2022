@@ -53,7 +53,7 @@ class Event:
     # W konstruktorach klas i deklaracji funkcji można dawać domyślne parametry.
     # Brakowało mi tego w Javie.
     # Są one używane, jeśli do konstruktora lub funkcji zostanie przekazany pusty parametr.
-    def __init__(self, hour, minutes, day, month, alert=0, text="", category="General"):
+    def __init__(self, hour, minutes, day, month, year, alert=0, text="", category="General"):
         self.day = day
         self.hour = hour
         self.minutes = minutes
@@ -61,6 +61,7 @@ class Event:
         self.text = text
         self.category = category
         self.alert = alert
+        self.year = year
 
         # To może być głupie, zastanowię się potem.
         # Widzę potencjalny NullPointerException.
@@ -190,18 +191,16 @@ class Window(QMainWindow, Ui_Dialog):
         dispEvents = []
 
         # Wypisuje nazwę kategorii przy zmianie kategorii w SelectCatBox.
-        print(actCat)
+        # print(actCat)
 
         for x in CatDatabase:
             if x.name == actCat:
                 dispEvents = x.heldEvents
 
         for e in dispEvents:
-            print(e.text)
-            print(e.category)
-
-        for e in dispEvents:
-            item = QtGui.QStandardItem(e.text + "\t\t" + e.category)
+            item = QtGui.QStandardItem(e.text + "\t\t" + e.category + "\t\t"
+                                       + str(e.day).zfill(2) + "." + str(e.month).zfill(2) + "." + str(e.year).zfill(2)
+                                       + "\t\t" + str(e.hour).zfill(2) + ":" + str(e.minutes).zfill(2) + ":00")
             a = self.listView.model()
             a.appendRow(item)
 
@@ -258,7 +257,7 @@ class AddEvent(QDialog, addEvent.Ui_Dialog):
 
                 newEvent = Event(self.timeEditComb.time().hour(), self.timeEditComb.time().minute(),
                                  self.calendarEd.selectedDate().day(), self.calendarEd.selectedDate().month(),
-                                 0, self.lineDesc.text(), cat.name)
+                                 self.calendarEd.selectedDate().year(), 0, self.lineDesc.text(), cat.name)
 
                 try:
                     # Mogą być te same nazwy. To od użytkownika zależy.
