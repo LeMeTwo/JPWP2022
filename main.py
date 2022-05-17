@@ -203,7 +203,7 @@ class Window(QMainWindow, Ui_Dialog):
                 dispEvents = x.heldEvents
 
         for e in dispEvents:
-            item = QtGui.QStandardItem(e.text + "\t\t" + e.category + "\t\t"
+            item = QtGui.QStandardItem("  " + e.text + "\t\t" + e.category + "\t\t"
                                        + str(e.day).zfill(2) + "." + str(e.month).zfill(2) + "." + str(e.year).zfill(2)
                                        + "\t\t" + str(e.hour).zfill(2) + ":" + str(e.minutes).zfill(2) + ":00")
             row.appendRow(item)
