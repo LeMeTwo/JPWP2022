@@ -361,6 +361,7 @@ class editEvent(QDialog, editEvent.Ui_Dialog):
         time = selectedEvent[3].split(":")
         self.timeEditComb.setTime(QTime(int(time[0]), int(time[1]), int(time[2])))
 
+        #Wyszukiwanie obecnej kategorii
         i = 0
         for x in CatDatabase:
             if x.name == selectedEvent[1]:
@@ -435,6 +436,10 @@ class editEvent(QDialog, editEvent.Ui_Dialog):
                 mainWindow.displayEvent()
                 #ładne zamykanie okienka :3
                 self.reject()
+
+    #Trzeba wymyśleć dlaczego nic się nie dzieje
+    def update(self):
+        print("Lol")
 
 
 
