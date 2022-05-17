@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="53db153e-23be-4fb9-998f-513084bee309" name="Changes" comment="Change of details">
+    <list default="true" id="53db153e-23be-4fb9-998f-513084bee309" name="Changes" comment="main - displayEvent Function improvement">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -87,7 +87,7 @@
       <workItem from="1652481038339" duration="1912000" />
       <workItem from="1652525289699" duration="36199000" />
       <workItem from="1652614338386" duration="2648000" />
-      <workItem from="1652707534098" duration="33384000" />
+      <workItem from="1652707534098" duration="34090000" />
     </task>
     <task id="LOCAL-00001" summary="Change of details">
       <created>1652458712668</created>
@@ -285,7 +285,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652747611462</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="main - displayEvent Function improvement">
+      <created>1652750128907</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1652750128907</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -323,10 +330,11 @@
     <MESSAGE value="main - added: basic event display function, display logic, accept function adjustment, refactoring and  change of details" />
     <MESSAGE value="GUI - display function linked" />
     <MESSAGE value="Change of details" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change of details" />
+    <MESSAGE value="main - displayEvent Function improvement" />
+    <option name="LAST_COMMIT_MESSAGE" value="main - displayEvent Function improvement" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/JPWP$main.coverage" NAME="main Coverage Results" MODIFIED="1652750019551" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/JPWP$main.coverage" NAME="main Coverage Results" MODIFIED="1652750801454" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/JPWP2022$main.coverage" NAME="main Coverage Results" MODIFIED="1652267511739" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

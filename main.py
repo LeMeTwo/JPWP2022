@@ -187,6 +187,11 @@ class Window(QMainWindow, Ui_Dialog):
         model = QtGui.QStandardItemModel()
         self.listView.setModel(model)
 
+        # Nagłówek i uzupełnianie viewList.
+        row = self.listView.model()
+        # label = QtGui.QStandardItem("Treść\t\tKategoria\tData\t\t\tGodzina")
+        # row.appendRow(label)
+
         actCat = self.SelectCatBox.itemText(self.SelectCatBox.currentIndex())
         dispEvents = []
 
@@ -201,8 +206,7 @@ class Window(QMainWindow, Ui_Dialog):
             item = QtGui.QStandardItem(e.text + "\t\t" + e.category + "\t\t"
                                        + str(e.day).zfill(2) + "." + str(e.month).zfill(2) + "." + str(e.year).zfill(2)
                                        + "\t\t" + str(e.hour).zfill(2) + ":" + str(e.minutes).zfill(2) + ":00")
-            a = self.listView.model()
-            a.appendRow(item)
+            row.appendRow(item)
 
     ####################################################################################################################
     ####################################################################################################################
