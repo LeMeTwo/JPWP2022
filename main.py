@@ -23,6 +23,7 @@ from PyQt5.QtCore import *
 mainWindow = None
 selectedEvent = ['gfs', 'Work', '17.05.2022', '00:00:00']
 ogModel = None
+hidden = []
 
 def fuckGarbageColletor(selecteevent):
     return selecteevent
@@ -98,10 +99,22 @@ class Window(QMainWindow, Ui_Dialog):
 
     #Zabijcie mnie bruh
     def onChanged2(self, text):
-        i = 0
+        global hidden
         ogModel2 = self.listView.model()
-        i = 1
-
+        for index in range(ogModel2.rowCount()):
+            try:
+                expression = (ogModel2.data(ogModel2.index(index, 0)).split()[0])
+            except:
+                continue
+            #expression = str(expression)
+            if (expression.startswith(self.lineEdit.text()) == False):
+                hidden.append(ogModel2.data(ogModel2.index(index, 0)).split())
+                ogModel2.removeRow(index)
+                #print(hidden)
+        for x in hidden:
+            if x[0].startswith(self.lineEdit.text()):
+                hidden.remove(x)
+                self.displayEvent()
 
 
     def on_clicked(self, index):
@@ -242,10 +255,11 @@ class Window(QMainWindow, Ui_Dialog):
                 dispEvents = x.heldEvents
 
         for e in dispEvents:
-            item = QtGui.QStandardItem("  " + e.text + "\t\t" + e.category + "\t\t"
-                                       + str(e.day).zfill(2) + "." + str(e.month).zfill(2) + "." + str(e.year).zfill(2)
-                                       + "\t\t" + str(e.hour).zfill(2) + ":" + str(e.minutes).zfill(2) + ":00")
-            row.appendRow(item)
+            if e.text.startswith(self.lineEdit.text()):
+                item = QtGui.QStandardItem("  " + e.text + "\t\t" + e.category + "\t\t"
+                                           + str(e.day).zfill(2) + "." + str(e.month).zfill(2) + "." + str(e.year).zfill(2)
+                                           + "\t\t" + str(e.hour).zfill(2) + ":" + str(e.minutes).zfill(2) + ":00")
+                row.appendRow(item)
 
         #self.listView.setCurrentIndex(self.entry.indexFromItem(item))
 

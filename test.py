@@ -1,44 +1,30 @@
-#!/usr/bin/python
+import yfinance as yf
+import 3matplotlib.pyplot as plt
 
-import sys
+'''
+Chcemy napisać funkcję, która obliczy i zwróci skumulowane zwroty z inwestycji 1$ w akcję Cisco Systems. 
+Przygotowano szkielet programu. Napisz funkcję cumulative_returns tak aby realizowała następujące kroki:
+    - zaciągnięcie za pomocą modułu yfinance danych giełdowych dla tickera (argument funckcji) z ostatnich 6 miesięcy.
+    - obliczenie procentowych zmian ceny zamknięcia dla rozpatrywanego okresu.
+    - obliczenie skumulowanego iloczynu (skorzystaj z jednej z funkcji modułu numpy) z uzyskanych procentowych zmian powiększonych o 1 (co oznacza inwestycję 1$)   
+    - usunięcie wszystkich wartości nan - możesz skorzystać z funckji dropna()
+    - zwrócenie otrzymanych wartości skumulowanych zwrotów
+Po uruchomieniu programu powinien pokazać się wykres, który przedstawia zmiany wartości zaiwestowanego 1$ w okresie 6 miesięcy. 
+Powodzenia!
+'''
 
-from PyQt5.QtWidgets import (QApplication, QLabel, QLineEdit,
-                             QVBoxLayout, QWidget)
-
-
-class Example(QWidget):
-
-    def __init__(self):
-        super().__init__()
-
-        self.initUI()
-
-    def initUI(self):
-        hbox = QVBoxLayout(self)
-
-        self.lbl = QLabel(self)
-        qle = QLineEdit(self)
-
-        qle.textChanged[str].connect(self.onChanged)
-
-        hbox.addWidget(self.lbl)
-        hbox.addSpacing(20)
-        hbox.addWidget(qle)
-
-        self.resize(250, 200)
-        self.setWindowTitle('QLineEdit')
-        self.show()
-
-    def onChanged(self, text):
-        self.lbl.setText(text)
-        self.lbl.adjustSize()
+def cumulative_returns(ticker):
+    # tutaj napisz swój kod
+    data = yf.Ticker('CSCO')
+    print = data.history(period="6mo")
+    x = price["Close"].pct_change()
+    returns = (x+1).cumprod()
+    return = returns.dropna()
+    return returns
 
 
-def main():
-    app = QApplication(sys.argv)
-    ex = Example()
-    sys.exit(app.exec_())
+if __name__ == "__main__":
 
-
-if __name__ == '__main__':
-    main()
+    data = cumulative_returns('CSC0')
+    data.plot()
+    plt.show()
