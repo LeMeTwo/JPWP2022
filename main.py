@@ -12,6 +12,8 @@ from PyQt5.QtWidgets import (
     QApplication, QDialog, QMainWindow, QMessageBox
 )
 
+import pickle
+
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
@@ -90,9 +92,7 @@ class Window(QMainWindow, Ui_Dialog):
         super().__init__(parent)
         self.setupUi(self)
         self.firstAddCats()
-        #Testowy event
-        self.listView.model().appendRow(QtGui.QStandardItem("lol"))
-
+        self.loadEvents()
 
     ####################################################################################################################
     ####################################################################################################################
@@ -116,6 +116,7 @@ class Window(QMainWindow, Ui_Dialog):
                 hidden.remove(x)
                 self.displayEvent()
 
+        self.saveEvents()
 
     def on_clicked(self, index):
         self.listView.setCurrentIndex(index)
@@ -215,6 +216,29 @@ class Window(QMainWindow, Ui_Dialog):
     def execRem(self):
         self.removeCats()
 
+    #Zapisywanie kategorii (i ich eventów)
+    def saveEvents(self):
+        with open('config.dictionary', 'wb') as configfile:
+            toSave = []
+            for x in CatDatabase:
+                toSave.append(x)
+
+            pickle.dump((toSave), configfile)
+
+    def loadEvents(self):
+        try:
+
+            with open('config.dictionary', 'rb') as configfile:
+                toLoad = pickle.load(configfile)
+                try:
+                    global CatDatabase
+                    CatDatabase = toLoad
+                    self.displayEvent()
+                except:
+                    print("bruh")
+        except:
+            pass
+
     # Otwiera okienko z dodawaniem eventów.
     def open(self):
         # Tak można łatwo sprawdzić, czy lista jest pusta.
@@ -232,7 +256,10 @@ class Window(QMainWindow, Ui_Dialog):
         # Wypisujemy eventy do ListView.
 
     # Wyświetla wydarzenia z wybranej kategorii.
-    def displayEvent(self):
+    def displayEvent(self, toLoad=[]):
+
+        if (len(toLoad) == 0):
+            toLoad = CatDatabase
 
         # Ustawianie viewList z poziomu okna Window.
         # To ma tu być, bo wtedy dynamicznie zmieniają się wydarzenia w zależności od kategorii.
@@ -245,6 +272,11 @@ class Window(QMainWindow, Ui_Dialog):
         # row.appendRow(label)
 
         actCat = self.SelectCatBox.itemText(self.SelectCatBox.currentIndex())
+
+        for x in CatDatabase:
+            if x.name == self.SelectCatBox.itemText(self.SelectCatBox.currentIndex()):
+                actCat = self.SelectCatBox.itemText(self.SelectCatBox.currentIndex())
+
         dispEvents = []
 
         # Wypisuje nazwę kategorii przy zmianie kategorii w SelectCatBox.
@@ -262,6 +294,7 @@ class Window(QMainWindow, Ui_Dialog):
                 row.appendRow(item)
 
         #self.listView.setCurrentIndex(self.entry.indexFromItem(item))
+
 
     ####################################################################################################################
     ####################################################################################################################
@@ -470,10 +503,11 @@ class editEvent(QDialog, editEvent.Ui_Dialog):
 # Jak go nie ma, to interpreter jedzie po otwartym pliku od góry na dół.
 # Odpowiednik main z java + ładnie wygląda i wiadomo gdzie zacząć.
 if __name__ == "__main__":
-    # CatDatabase = ["General", "Work"]
     general = Category("General")
     work = Category("Work")
-    Ludwin = Category("Ludwin")
+    Ludwin = Category("Loudwin")
+
+
     CatDatabase = [general, work, Ludwin]
     app = QApplication(sys.argv)
     win = Window()
