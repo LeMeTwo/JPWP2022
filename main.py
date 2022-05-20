@@ -106,11 +106,10 @@ class Window(QMainWindow, Ui_Dialog):
                 expression = (ogModel2.data(ogModel2.index(index, 0)).split()[0])
             except:
                 continue
-            #expression = str(expression)
-            if (expression.startswith(self.lineEdit.text()) == False):
-                hidden.append(ogModel2.data(ogModel2.index(index, 0)).split())
-                ogModel2.removeRow(index)
-                #print(hidden)
+            if (expression.startswith(self.lineEdit.text()) == True):
+                self.setWindowIcon(QIcon('resources/Troll-faceProblem.jpg'))
+                self.listView.setStyleSheet("background-image : url(resources/Troll-faceProblem.jpg);")
+                #hidden.append(ogModel2.data(ogModel2.index(index, 0)).split())
         for x in hidden:
             if x[0].startswith(self.lineEdit.text()):
                 hidden.remove(x)
@@ -227,15 +226,7 @@ class Window(QMainWindow, Ui_Dialog):
 
     def loadEvents(self):
         try:
-
-            with open('config.dictionary', 'rb') as configfile:
-                toLoad = pickle.load(configfile)
-                try:
-                    global CatDatabase
-                    CatDatabase = toLoad
-                    self.displayEvent()
-                except:
-                    print("bruh")
+            pass
         except:
             pass
 

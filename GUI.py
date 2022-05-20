@@ -243,7 +243,6 @@ class Ui_Dialog(object):
         self.pushAddCat.clicked.connect(Dialog.execAdd) # type: ignore
         self.pushButton.pressed.connect(Dialog.open) # type: ignore
         self.SelectCatBox.currentIndexChanged['QString'].connect(Dialog.displayEvent) # type: ignore
-        self.lineEdit.textChanged.connect(Dialog.onChanged2) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(Dialog)
         self.listView.clicked[QtCore.QModelIndex].connect(self.on_clicked)
 
