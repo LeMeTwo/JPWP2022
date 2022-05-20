@@ -7,6 +7,7 @@ Podłącz tę funkcję w pliku GUI.py. Funkcja musi wykonywać się za każdym r
 
 Podpowiedź: Wyszukiwarka nosi nazwę "lineEdit"
 
+
 Zadanie 2:
 To nie koniec problemów z wyszukiwarką
 Zły Troll wkradł się do programu i ją zepsuł 

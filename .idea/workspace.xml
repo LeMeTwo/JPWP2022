@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="53db153e-23be-4fb9-998f-513084bee309" name="Changes" comment="Final">
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_05_2022_15_21__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_05_2022_15_21__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -420,7 +418,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652969001672</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Final">
+      <created>1653044009326</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1653044009326</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -439,7 +444,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Second GUI - adjusted scaling" />
     <MESSAGE value="Second GUI - adjusted graphics and colors" />
     <MESSAGE value="addEvent GUI - create new addEvent GUI (not working)" />
     <MESSAGE value="addEvent &amp; GUI working - almost final version of working GUI, without searching mechanism, change of details needed, old versions put in order" />
@@ -464,7 +468,8 @@
     <MESSAGE value="Savestate, nie wymyślę na razie iterowania przez obiekty w viewliście" />
     <MESSAGE value="Wyrzukiwarka" />
     <MESSAGE value="Serizalizacja" />
-    <option name="LAST_COMMIT_MESSAGE" value="Serizalizacja" />
+    <MESSAGE value="Final" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
