@@ -35,7 +35,7 @@ class QtWidgets:
     pass
 
 
-# To gówno jest do tworzenia label-ów dynamicznie.
+# To coś jest do tworzenia label-ów dynamicznie.
 class ExampleLabel(QLabel):
     def __init__(self):
         super().__init__()
