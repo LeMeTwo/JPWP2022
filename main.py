@@ -214,7 +214,7 @@ class Window(QMainWindow, Ui_Dialog):
     # Usuwanie kategorii.
     def execRem(self):
         self.removeCats()
-
+#
     #Zapisywanie kategorii (i ich eventów)
     def saveEvents(self):
         with open('config.dictionary', 'wb') as configfile:
