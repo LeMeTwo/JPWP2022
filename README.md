@@ -1,3 +1,6 @@
+https://drive.google.com/file/d/1z44VRClLGRNCwu4gxd2eUUvgXXGgD6j4/view?usp=sharing
+Link powyżej prowadzi do awaryjnej wersji narzędzi Qt, jeśli już nic by nie działało
+
 Zadanie 1:
 Programista zapomniał podłączyć sygnał wyszukiwarki 
 
