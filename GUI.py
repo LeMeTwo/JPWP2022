@@ -245,6 +245,7 @@ class Ui_Dialog(object):
         self.SelectCatBox.currentIndexChanged['QString'].connect(Dialog.displayEvent) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(Dialog)
         self.listView.clicked[QtCore.QModelIndex].connect(self.on_clicked)
+        self.lineEdit.textChanged.connect(self.onChanged2)
 
 
     def retranslateUi(self, Dialog):
