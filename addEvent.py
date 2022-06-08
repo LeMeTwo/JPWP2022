@@ -164,7 +164,7 @@ class Ui_Dialog(object):
         font.setBold(True)
         font.setWeight(75)
         self.remindComb.setFont(font)
-        self.remindComb.setStyleSheet("background-image : url(resources/hulicki.jpg)")
+        self.remindComb.setStyleSheet("background-image : url(resources/space.jpg)")
         self.remindComb.setFrame(True)
         self.remindComb.setObjectName("remindComb")
         self.remindComb.addItem("")
