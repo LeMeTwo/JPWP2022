@@ -321,8 +321,8 @@ if __name__ == "__main__":
     # CatDatabase = ["General", "Work"]
     general = Category("General")
     work = Category("Work")
-    Ludwin = Category("Ludwin")
-    CatDatabase = [general, work, Ludwin]
+    Load = Category("Load")
+    CatDatabase = [general, work, Load]
     app = QApplication(sys.argv)
     win = Window()
     # win = AddEvent()
