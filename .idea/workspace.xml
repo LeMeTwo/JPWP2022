@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53db153e-23be-4fb9-998f-513084bee309" name="Changes" comment="change of details">
+    <list default="true" id="53db153e-23be-4fb9-998f-513084bee309" name="Changes" comment="Change of details">
       <change afterPath="$PROJECT_DIR$/qt5_applications.7z" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addEvent.py" beforeDir="false" afterPath="$PROJECT_DIR$/addEvent.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +118,7 @@
       <workItem from="1652998383450" duration="754000" />
       <workItem from="1653001454606" duration="735000" />
       <workItem from="1653035634151" duration="2485000" />
-      <workItem from="1654701324280" duration="178000" />
+      <workItem from="1654701324280" duration="1693000" />
     </task>
     <task id="LOCAL-00001" summary="Change of details">
       <created>1652458712668</created>
@@ -401,7 +400,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654701425742</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Change of details">
+      <created>1654701535682</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1654701535682</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -436,7 +442,6 @@
     <MESSAGE value="GUI - GUI fits every screen" />
     <MESSAGE value="main - added: basic event display function, display logic, accept function adjustment, refactoring and  change of details" />
     <MESSAGE value="GUI - display function linked" />
-    <MESSAGE value="Change of details" />
     <MESSAGE value="main - displayEvent Function improvement" />
     <MESSAGE value="bugfixes + zczytywanie z kliku" />
     <MESSAGE value="Edytowanie eventów part 1" />
@@ -445,7 +450,8 @@
     <MESSAGE value="Savestate, nie wymyślę na razie iterowania przez obiekty w viewliście" />
     <MESSAGE value="Reload branch" />
     <MESSAGE value="change of details" />
-    <option name="LAST_COMMIT_MESSAGE" value="change of details" />
+    <MESSAGE value="Change of details" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change of details" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -462,6 +468,6 @@
     <SUITE FILE_PATH="coverage/main_py$main.coverage" NAME="main Coverage Results" MODIFIED="1652543501177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/JPWP2022$test.coverage" NAME="test Coverage Results" MODIFIED="1652863876198" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/JPWP$main.coverage" NAME="main Coverage Results" MODIFIED="1652539946919" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/JPWP2022$main.coverage" NAME="main Coverage Results" MODIFIED="1654701473758" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/JPWP2022$main.coverage" NAME="main Coverage Results" MODIFIED="1654701503784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
